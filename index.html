@@ -1,12 +1,604 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZOZOマリンスタジアム初心者ナビ</title>
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
-    
+
+<body>
+  <div class="bg-scatter">
+    <img src="img/背景1.gif" class="scatter" />
+    <img src="img/背景1_2.gif" class="scatter" />
+    <img src="img/背景1_10.gif" class="scatter" />
+    <img src="img/背景1_4.gif" class="scatter" />
+    <img src="img/背景1_5.gif" class="scatter" />
+    <img src="img/背景1_6.gif" class="scatter" />
+    <img src="img/背景1_7.gif" class="scatter" />
+    <img src="img/背景1_8.gif" class="scatter" />
+    <img src="img/背景1_9.gif" class="scatter" />
+  </div>
+
+
+  <section id="top-images">
+    <div class="fade-in"><img src="img/IMG_7047.jpg" alt="画像1"></div>
+    <div class="fade-in"><img src="img/IMG_7205.jpg" alt="画像2"></div>
+    <div class="fade-in"><img src="img/IMG_7211.jpg" alt="画像3"></div>
+    <div class="fade-in"><img src="img/IMG_7231.jpg" alt="画像4"></div>
+  </section>
+
+  <div class="container">
+    <img src="img/IMG_5422 2.png" alt="写真" class="image">
+    <div class="text-overlay">ZOZOマリンスタジアム<br>初心者ナビ</div>
+  </div>
+
+
+  <button class="menu-toggle" aria-label="メニューを開閉">↓ メニュー</button>
+
+  <br><br>
+  <div class="menu-wrapper">
+    <ul class="menu">
+      <li><a href="#intro">ZOZOマリンスタジアムとは</a></li>
+      <li><a href="#ticket">チケットの購入方法・座席選び</a></li>
+      <li><a href="#flow">当日の流れ・持ち物</a></li>
+      <li><a href="#gourmet">球場グルメ・楽しみ方</a></li>
+      <li><a href="#support">応援スタイル</a></li>
+      <li><a href="#goods">応援グッズ・ユニフォーム購入方法</a></li>
+      <li><a href="#faq">初心者のよくある質問</a></li>
+    </ul>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuWrapper = document.querySelector('.menu-wrapper');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const introSection = document.getElementById('intro');
+
+      if (menuToggle && menuWrapper) {
+        menuToggle.addEventListener('click', () => {
+          menuWrapper.classList.toggle('open');
+          menuToggle.textContent = menuWrapper.classList.contains('open') ? '↑ メニュー' : '↓ メニュー';
+        });
+      }
+
+      document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+
+            if (window.innerWidth < 768 && menuWrapper.classList.contains('open')) {
+              menuWrapper.classList.remove('open');
+              menuToggle.textContent = '↓ メニュー';
+            }
+          }
+        });
+      });
+
+      window.addEventListener('scroll', () => {
+        if (!menuWrapper || !introSection) return;
+        const introTop = introSection.getBoundingClientRect().top;
+        if (introTop <= 0) {
+          menuWrapper.classList.add('fixed');
+        } else {
+          menuWrapper.classList.remove('fixed');
+        }
+      });
+    });
+  </script>
+
+
+
+
+  <main>
+    <section id="intro">
+      <h2>・ZOZOマリンスタジアムとは・</h2>
+
+      <div class="content-box stadium-info">
+        <div class="stadium-img">
+          <img src="./img/IMG_1088.png" alt="スタジアム写真">
+        </div>
+
+        <div class="stadium-text">
+          <p><strong>場所:</strong>ZOZOマリンスタジアム(〒261-0022 千葉県千葉市美浜区美浜１)</p>
+          <p><strong>収容人数：</strong>約30,000人（内野 約22,800席、外野 約7,000席）</p>
+          <p><strong>フィールド寸法：</strong>両翼 99.5m／中堅 122m／フェンス高 3.3m</p>
+          <p><strong>主な用途：</strong><br>
+            プロ野球の試合<br>
+            音楽イベント（サマーソニックなど）<br>
+            単独ライブも開催
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="ticket">
+
+      <h2>・チケットの購入方法・座席選び・</h2>
+
+      <div class="ticket-wrapper content-box">
+        <!-- 左側：画像スライダー -->
+        <div class="ticket-left">
+          <h3 class="ticket-heading">公式サイト購入方法</h3>
+          <div class="ticket-slider">
+            <div class="slide-track">
+              <img src="./img/チケット購入1.jpg" alt="購入1">
+              <img src="./img/チケット購入2.jpg" alt="購入2">
+              <img src="./img/チケット購入3.jpg" alt="購入3">
+            </div>
+            <button class="prev">‹</button>
+            <button class="next">›</button>
+          </div>
+        </div>
+
+        <!-- 右側：説明と表 -->
+        <div class="ticket-right">
+          <p class="ticket-howto">
+            【公式サイトでの購入方法】<br>
+            ①ご希望の日にちを選択 → ②座席を選択 → ③料金を選択して購入へ<br>
+            （その後、決済方法等を選択して手続きをしてください）
+          </p>
+
+          <div class="ticket-table-wrapper">
+            <table class="ticket-table">
+              <thead>
+                <tr>
+                  <th>購入方法</th>
+                  <th>特徴</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>マリーンズ公式サイト</td>
+                  <td>一番安心・座席が細かく選択可能</td>
+                </tr>
+                <tr>
+                  <td>ローソンチケット(ローチケ)</td>
+                  <td>コンビニ払いOK・スマホでも可能</td>
+                </tr>
+                <tr>
+                  <td>チケットぴあ / イープラス</td>
+                  <td>限定座席あり・ワイドシート対応</td>
+                </tr>
+                <tr>
+                  <td>当日球場で購入</td>
+                  <td>球場のMチケット窓口で当日券購入可能</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="ticket-recommend">
+              初めて球場に行く方や慣れてない方には<br>
+              <strong>内野指定席AかB</strong> がおすすめ！<br>
+              一塁側(ホーム)と三塁側(ビジター)は気分で行くのもアリです
+            </p>
+          </div>
+        </div>
+
+
+
+
+        <p class="gate-info">
+          入場ゲートは球場外周にあるアルファベットで分かれているので、<br>
+          持参のチケットと同じゲートから入場ができます。
+        </p>
+
+
+        <div class="zaseki-img">
+          <img src="./img/IMG_7040.png" class="hover-box">
+          <img src="./img/IMG_7031.png" class="hover-box">
+          <img src="./img/IMG_7029.png" class="hover-box">
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="flow">
+      <h2>・持ち物・</h2>
+      <table class="info-table">
+        <tr>
+          <th>カテゴリ</th>
+          <th>内容</th>
+        </tr>
+        <tr>
+          <td>必需品</td>
+          <td>スマホ・現金・チケット・飲み物・ゴミ袋</td>
+        </tr>
+        <tr>
+          <td>暑さ/寒さ対策</td>
+          <td>帽子・日焼け止め・雨具（傘は極力避ける）・当日に合う服装</td>
+        </tr>
+        <tr>
+          <td>応援グッズ</td>
+          <td>ユニフォーム・タオル・応援チームのグッズなど</td>
+        </tr>
+      </table>
+
+      <h3>・球場の持ち込み可能な飲食物または持ち込み物等・</h3>
+      <table class="info-table">
+        <tr>
+          <th>種類</th>
+          <th>持ち込み可能内容</th>
+        </tr>
+        <tr>
+          <td>飲食物</td>
+          <td>球場外周で購入された飲食物</td>
+        </tr>
+        <tr>
+          <td>飲み物</td>
+          <td>750ml以下のペットボトル・水筒・紙パック（アルコールを除く）</td>
+        </tr>
+        <tr>
+          <td>応援用品</td>
+          <td>応援ボード・横断幕など（※大きさに制限あり）</td>
+        </tr>
+      </table>
+      <p style="margin-top: 1em;">詳しくはこちら：<a href="https://www.marines.co.jp/stadium/rule/"
+          target="_blank">球場ルール｜千葉ロッテマリーンズ公式</a></p>
+
+      <h2>・当日の流れ・</h2>
+      <p class="txt4">※試合開始2時間前には現地入りをおすすめします（入場開始は試合開始2時間前が目安）</p>
+
+      <h4>デイゲームの場合</h4>
+      <table class="info-table">
+        <tr>
+          <th>時間</th>
+          <th>内容</th>
+        </tr>
+        <tr>
+          <td>11:00〜11:30</td>
+          <td>球場内外のグルメを楽しむ</td>
+        </tr>
+        <tr>
+          <td>11:30〜12:00</td>
+          <td>グッズやスポットを散策</td>
+        </tr>
+        <tr>
+          <td>12:00〜13:00</td>
+          <td>座席に着いて選手の練習やグルメなどを楽しむ</td>
+        </tr>
+      </table>
+
+      <h4>ナイターの場合</h4>
+      <table class="info-table">
+        <tr>
+          <th>時間</th>
+          <th>内容</th>
+        </tr>
+        <tr>
+          <td>15:00〜15:30</td>
+          <td>球場内外のグルメを楽しむ</td>
+        </tr>
+        <tr>
+          <td>15:30〜16:00</td>
+          <td>グッズやスポットを散策</td>
+        </tr>
+        <tr>
+          <td>16:00〜17:00</td>
+          <td>座席に移動して選手の練習やグルメなどを楽しむ</td>
+        </tr>
+      </table>
+    </section>
+    <section class="tour">
+      <section id="gourmet">
+        <h2>・球場の巡り方・</h2>
+
+        <div class="tour-block">
+          <img src="img/IMG_4340.jpg" alt="グルメ写真" class="tour-img">
+          <img src="img/IMG_7033.png" alt="グルメ写真" class="tour-img">
+          <div class="tour-text">
+            球場にはグルメやグッズなど様々な場所がありますが、<br>
+            すべては覚えきれないほど！<br>
+            店舗もあり、試合前から楽しむことができます。
+          </div>
+        </div>
+
+        <div class="tour-block reverse">
+          <img src="img/IMG_7039.png" alt="手形モニュメント" class="tour-img">
+          <img src="img/IMG_9147.png" alt="手形モニュメント" class="tour-img">
+          <div class="tour-text background2">
+            球場外周には選手の手形がついた<br>
+            記念モニュメントがあります。<br>
+            実際に手を合わせてみるとその大きさにびっくりします！
+          </div>
+        </div>
+
+        <div class="tour-block">
+          <img src="img/IMG_7032.png" alt="OGI FARMの出店" class="tour-img">
+          <img src="img/IMG_7041.png" alt="グルメ写真" class="tour-img">
+          <div class="tour-text background3">
+            萩野貴司選手が手掛ける「OGI FARM」から<br>
+            キッチンカーが出店しています。<br>
+            さつまいもを使用したメニューがメインで、<br>
+            シェイクやポテトなど、どれも甘くて美味しいです！
+          </div>
+        </div>
+
+        <div class="tour-block reverse">
+          <img src="img/IMG_7027.png" alt="コラボメニューなど" class="tour-img">
+          <div class="tour-text background4">
+            その他にも期間限定でコラボメニューや<br>
+            屋台が出ていることもあります。<br>
+            球場に行く際はぜひチェックしてみてください！
+          </div>
+        </div>
+      </section>
+    </section>
+    <section id="support" class="bg-support">
+      <h2>・応援スタイル・</h2>
+      <p class="txt6">
+        応援スタイルは各球団で少し異なる場合がありますが、基本的には同じです。<br><br>
+
+        各選手が打席に立つとき、ファンは応援歌を歌って盛り上げます。<br>
+        座席を立って応援するのは外野の応援席のみで、内野席では周囲の迷惑になることもあるので注意しましょう。<br><br>
+
+        応援歌やチャンスの場面では、拍手や手拍子などで一体感を楽しみましょう！<br><br>
+
+        ユニフォームやタオルは絶対ではなく、当日の雰囲気や気分で決めて大丈夫です。<br>
+        着ていないからといって気にする必要はまったくありません。<br><br>
+
+        安心して、自由なスタイルで観戦を楽しみましょう！
+      </p>
+
+      <div class="more-link">
+        <a href="support-detail.html" class="button-link" target="_blank" rel="noopener noreferrer">もっと詳しく知りたい</a>
+
+      </div>
+    </section>
+    <section>
+      <section id="goods" class="box-background">
+        <h2>・応援グッズの購入方法・</h2>
+        <div class="goods-item">
+          <div class="new-detail">
+            <p class="txt">
+            <p class="txt7">
+              応援グッズの購入方法は
+              球場内外と海浜幕張駅前とオンラインショップ
+              の３つの方法があります。
+            </p>
+            <div class="goods-img">
+              <!-- ミュージアム店 -->
+              <p>
+                <a href="https://www.google.com/maps/place/マリーンズストア+ミュージアム店/@35.6463378,140.0311054,19z" target="_blank"
+                  rel="noopener noreferrer">
+                  マリーンズミュージアム前
+                </a>
+              </p>
+              <div class="mini-map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.462160261659!2d140.0311054!3d35.6463378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602281f7a5eca799%3A0x2b1e23f6cf517205!2z44CSMjY1LTAwNTMg5YyX5rOi55yM5pil5YyX5biC5Y6f5bGL5LiK5rCR77yT5LiB55uu77yU4oiS77yTIOOCteODvOODrOODieOCr-OCueOCv-ODquODvOOCt-ODp-ODs-OCieOCiuOCrA!5e0!3m2!1sja!2sjp!4v1721630000000"
+                  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+
+              <!-- スタジアム店 -->
+              <p>
+                <a href="https://www.google.com/maps/place/マリーンズ+ストア+スタジアム店/@35.6456268,140.0317924,19z" target="_blank"
+                  rel="noopener noreferrer">
+                  マリーンズストア スタジアム店
+                </a>
+              </p>
+              <div class="mini-map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.470998518239!2d140.0313354!3d35.6456207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602281f633747ff7%3A0xe075b032a1c105b8!2z44CSMjY1LTAwNTMg5YyX5rOi55yM5pil5YyX5biC5Y6f5bGL5LiK5rCR77yR5LiB55uu77yR4oiS77yR77yU!5e0!3m2!1sja!2sjp!4v1721630000001"
+                  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+
+              <!-- 海浜幕張駅前店 -->
+              <p>
+                <a href="https://www.google.com/maps/place/マリーンズストア+海浜幕張駅前店/@35.6481046,140.0403282,19z" target="_blank"
+                  rel="noopener noreferrer">
+                  マリーンズストア 海浜幕張駅前店
+                </a>
+              </p>
+              <div class="mini-map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.6143219438324!2d140.0399536!3d35.6481933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602282200a31120f%3A0x80655d58099a4158!2z44CSMjY1LTAwNTMg5YyX5rOi55yM5pil5YyX5biC5Y6f5bGL5LiK5rCR5bmz5p2R77yU5LiB55uu77yR4oiS77yR77yX!5e0!3m2!1sja!2sjp!4v1721630000002"
+                  width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+
+              <!-- オンラインストア -->
+              <p>
+                <br><a href="https://shop.marines.co.jp/" target="_blank" rel="noopener noreferrer">
+                  千葉ロッテマリーンズオンラインストア
+                  </a>
+              </p>
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <div class="goods-item">
+          <div class="new-detail">
+            <p class="txt7">
+              おすすめはマリーンズミュージアム店
+            </p>
+            <p class="txt7">
+              通常のグッズから期間限定やコラボグッズまで取り揃えています。<br>
+              入場チケットを持っていなくても入店可能なので、<br>
+              グッズを購入したい場合はおすすめです。
+            </p>
+          </div>
+        </div>
+
+      </section>
+      <section id="faq" class="box-background">
+        <h2>・初心者のよくある質問・</h2>
+
+        <h3>・アクセス方法が知りたい</h3>
+
+        <h4>電車・バスでお越しの場合</h4>
+        <div class="transport-bg">
+          <p class="txt8">
+            JR京葉線「海浜幕張駅」下車 → 徒歩またはバス（球場までの直行便）<br>
+            徒歩：約15分　バス：約5分
+          </p>
+        </div>
+
+        <div class="map-img">
+          <img src="img/ZOZO_MAP.png" alt="ZOZOマリンスタジアム地図" class="clickable-img">
+          <p class="image-caption">※クリックで拡大</p>
+        </div>
+
+        <div id="img-modal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="modal-img">
+        </div>
+
+        <p class="txt8">
+          JR総武線「幕張本郷」または「幕張駅」 → バスで約20分（幕張本郷）、約15分（幕張）
+        </p>
+        </div>
+
+        <h4>車でお越しの場合</h4>
+        <div class="car-bg">
+          <p class="txt8">
+            ZOZOマリンスタジアム駐車場：約500台（1,000～2,000円）<br>
+            幕張メッセ駐車場：数千台（料金：約1,000円）<br>
+            イオンモール駐車場：約7,000台（条件付き無料）
+          </p>
+        </div>
+
+
+        <h3>・1試合どのくらい時間がかかる？</h3>
+        <div class="time-bg">
+          <p class="txt8">
+            平均は2時間半から3時間程度ですが、延長戦になるともっと長くなることもあります。<br>
+            途中で帰るのもまったく問題ないので、無理せず楽しみましょう！
+          </p>
+        </div>
+
+
+        <h3>・ルールがよくわからない…</h3>
+        <div class="rules-bg">
+          <p class="txt8">
+            基本ルールをざっくり理解していればOK！<br>
+            よくわからない方はまず以下のリンクからどうぞ：<br>
+            <a href="https://www.rere.jp/beginners/31994/" target="_blank" rel="noopener noreferrer">
+              野球の基本ルールを解説したページ
+            </a>
+          </p>
+
+          <p class="txt8">
+            試合を見ながら少しずつ覚えるのが一番楽しい方法です。<br>
+            中継や野球動画を見て、ある程度勉強するのも良い方法です！
+          </p>
+        </div>
+
+      </section>
+
+  </main>
 </body>
+
+
+<script>
+  const modal = document.getElementById("img-modal");
+  const modalImg = document.getElementById("modal-img");
+  const clickableImg = document.querySelector(".clickable-img");
+  const closeBtn = document.querySelector(".close");
+
+  clickableImg.onclick = function () {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+  };
+
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+
+<section id="summary-footer">
+  <div class="summary-container">
+    <div class="summary-column">
+      <h4>FAQまとめ</h4>
+      <ul>
+        <li><a href="#faq">アクセス方法</a></li>
+        <li><a href="#ticket">チケット購入</a></li>
+        <li><a href="#flow">持ち物</a></li>
+        <li><a href="#gourmet">飲食について</a></li>
+      </ul>
+    </div>
+    <div class="summary-column">
+      <h4>関連リンク</h4>
+      <ul>
+        <li><a href="#goods">応援グッズ情報</a></li>
+        <li><a href="#support">観戦マナー</a></li>
+        <li><a href="#faq">アクセスマップ</a></li>
+      </ul>
+    </div>
+    <div class="summary-column">
+      <h4>お問い合わせ</h4>
+      <p>ZOZOマリンスタジアム お問い合わせ<br>
+        TEL: 043-296-1227<br>
+        Mail: https://www.marines.co.jp/inquiry/form/
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const track = document.querySelector('.slide-track');
+  const slides = document.querySelectorAll('.slide-track img');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+
+  let currentIndex = 0;
+
+  function updateSlidePosition() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlidePosition();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlidePosition();
+  });
+</script>
+
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  faders.forEach(fader => {
+    observer.observe(fader);
+  });
+</script>
+
+
 </html>
